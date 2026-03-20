@@ -5,10 +5,10 @@ import { firebaseConfig} from "./f_config";
 
 
 
-// Firebase 초기화
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Firestore 인스턴스 생성
+// Create Firestore instance
 export const db = getFirestore(app);
 
 
