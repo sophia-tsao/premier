@@ -28,7 +28,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-// 🔹 전체 회원 조회
+// 🔹 Get all users
 const getAllUsers = async () => {
   const usersRef = collection(db, "users");
   const querySnapshot = await getDocs(usersRef);
@@ -38,7 +38,7 @@ const getAllUsers = async () => {
   }));
 };
 
-// 🔹 사용자 정보 업데이트
+// 🔹 Update user information
 const updateUser = async (id, updatedData) => {
   try {
     await updateDoc(doc(db, "users", id), updatedData);
@@ -48,7 +48,7 @@ const updateUser = async (id, updatedData) => {
   }
 };
 
-// 🔹 사용자 삭제
+// 🔹 Delete user
 const deleteUser = async (id) => {
   try {
     await deleteDoc(doc(db, "users", id));
@@ -58,7 +58,7 @@ const deleteUser = async (id) => {
   }
 };
 
-// 🔹 로그인
+// 🔹 Sign in
 const signIn = async (email, password) => {
   try {
     const result = await signInWithEmailAndPassword(auth, email, password);
@@ -90,7 +90,7 @@ const signIn = async (email, password) => {
   }
 };
 
-// 🔹 Google 로그인
+// 🔹 Google sign in
 const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
@@ -120,7 +120,7 @@ const signInWithGoogle = async () => {
   }
 };
 
-// 🔹 회원가입
+// 🔹 Sign up
 const signUp = async ({
   email,
   password,
