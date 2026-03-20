@@ -22,10 +22,10 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "ko", // 기본 언어 설정
+    lng: "ko", // Default language
     fallbackLng: "ko",
     interpolation: {
-      escapeValue: false, // React에서 XSS를 방지하기 위한 설정
+      escapeValue: false, // Prevents XSS in React
     },
   });
 
