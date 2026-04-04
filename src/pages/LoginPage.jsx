@@ -1,23 +1,15 @@
 import logo from "../assets/img/logo.png";
 import backgroundLogo from "../assets/img/background-logo.png";
 import { useState } from "react";
-import { MdEmail, MdLock, MdOutlineEmail, MdOutlineLock } from "react-icons/md";
-import { FcGoogle } from "react-icons/fc";
+import { MdOutlineEmail, MdOutlineLock } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { auth, signIn, signInWithGoogle } from "../utils/firebase_auth";
-import { useTranslation } from "react-i18next";
+import { signIn } from "../utils/firebase_auth";
 
 //new
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { t, i18n } = useTranslation();
-
-  //언어 변경
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
 
   //web login
   const onLogin = async () => {
@@ -26,13 +18,6 @@ function LoginPage() {
       navigate("/subject-drive");
     }
   };
-
-
-  //google login
-  const onGoogleLogin = async () => {
-    await signInWithGoogle();
-  };
-
 
 
   return (

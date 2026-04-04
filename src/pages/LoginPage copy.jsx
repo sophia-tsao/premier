@@ -13,7 +13,7 @@ function LoginPage() {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
-  //언어 변경
+  // Change language
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };

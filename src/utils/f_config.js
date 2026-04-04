@@ -29,7 +29,7 @@ const firebaseConfig = {
     storageBucket: "premier-portal-1add0.firebasestorage.app",
     messagingSenderId: "105286224845",
     appId: "1:105286224845:web:64f469ace9a5bd3b0e1284",
-    measurementId: "G-L5LJTB7X5W" // Analytics 활성화된 경우
+    measurementId: "G-L5LJTB7X5W" // When Analytics is enabled
   };
 
 

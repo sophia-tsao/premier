@@ -3,7 +3,6 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -13,7 +12,6 @@ import { firebaseConfig } from "./f_config";
 import {
   addDoc,
   collection,
-  getDoc,
   setDoc,
   doc,
   query,
@@ -61,7 +59,7 @@ const deleteUser = async (id) => {
 // 🔹 Sign in
 const signIn = async (email, password) => {
   try {
-    const result = await signInWithEmailAndPassword(auth, email, password);
+    await signInWithEmailAndPassword(auth, email, password);
     const usersRef = collection(db, "users");
     const q = query(usersRef, where("email", "==", email));
     const querySnapshot = await getDocs(q);
@@ -69,7 +67,7 @@ const signIn = async (email, password) => {
     if (!querySnapshot.empty) {
       const userDoc = querySnapshot.docs[0];
       const userData = userDoc.data();
-      console.log("사용자 정보:", userData);
+      console.log("User info:", userData);
 
       if (userData.subject.length === 0) {
         alert("You don't have any subject");
@@ -78,7 +76,7 @@ const signIn = async (email, password) => {
 
       localStorage.setItem("subject", JSON.stringify(userData.subject));
     } else {
-      console.log("해당 이메일의 사용자를 찾을 수 없습니다.");
+      console.log("No user found with this email.");
     }
 
     alert("Sign in success");

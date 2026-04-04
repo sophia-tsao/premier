@@ -2,9 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Papa from "papaparse";
 import { db } from "../utils/firebase_store";
 import { collection, onSnapshot, deleteDoc, doc, addDoc, updateDoc, serverTimestamp } from "firebase/firestore";
-import { auth } from "../utils/firebase_auth";
-import { createUserWithEmailAndPassword, deleteUser, getAuth } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 
 const SUBJECTS = {
   "Elementary School": [
@@ -43,7 +41,6 @@ const AdminPage = () => {
   const [updatedUser, setUpdatedUser] = useState({ firstName: "", lastName: "", email: "", password: "", subject: [], role: "", gradeLevel: "", courseCategory: "" });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const firebaseAuth = getAuth();
-  const navigate = useNavigate();
   const fileInputRef = useRef();
 
   useEffect(() => {
@@ -244,24 +241,6 @@ const AdminPage = () => {
   }
 };
 
-
-const handleCourseCategoryChange = (e, isNew = false) => {
-  const value = e.target.value;
-
-  if (isNew) {
-    setNewUser(prev => ({
-      ...prev,
-      courseCategory: value,
-      // DO NOT touch subject — preserve it as-is
-    }));
-  } else {
-    setUpdatedUser(prev => ({
-      ...prev,
-      courseCategory: value,
-      // DO NOT touch subject — preserve it as-is
-    }));
-  }
-};
 
   const handleSubjectChange = (e, isNew = false) => {
     const { value, checked } = e.target;

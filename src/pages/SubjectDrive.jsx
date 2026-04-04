@@ -37,7 +37,7 @@ const SubjectDrive = () => {
             width: '100%',
             position: 'relative'
         }}>
-            {/* ⚙️ 톱니바퀴 (Only for Full Drive users) */}
+            {/* ⚙️ Gear icon (Only for Full Drive users) */}
             {isFullDriveUser && (
                 <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
                     <FontAwesomeIcon
@@ -67,7 +67,7 @@ const SubjectDrive = () => {
                 </div>
             )}
 
-            {/* 드롭다운 + Title (only for non-Full Drive users) */}
+            {/* Dropdown + Title (only for non-Full Drive users) */}
             {!isFullDriveUser && (
                 <>
                     <h1 style={{
@@ -104,7 +104,7 @@ const SubjectDrive = () => {
                 </>
             )}
 
-            {/* 버튼 */}
+            {/* Button */}
             <button
                 onClick={() => {
                     if (subject === '') {
