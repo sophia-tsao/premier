@@ -21,7 +21,7 @@ A web portal for Premier Charter School that gives teachers and staff quick acce
 
 ### Prerequisites
 
-- [Node.js 18+](https://nodejs.org/en/download) — includes `npm`
+- [Node.js 24+](https://nodejs.org/en/download) — includes `npm`
 - [Git](https://git-scm.com/downloads)
 
 ### Installation
@@ -47,6 +47,12 @@ npm run build
 ```
 
 Outputs an optimized build to the `build/` folder.
+
+### Push to Github
+
+```bash
+git push
+```
 
 ## Project Structure
 
