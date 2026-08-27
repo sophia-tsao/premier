@@ -69,8 +69,8 @@ const signIn = async (email, password) => {
       const userData = userDoc.data();
       console.log("User info:", userData);
 
-      if (userData.subject.length === 0) {
-        alert("You don't have any subject");
+      if (userData.subject.length === 0 && userData.role !== "admin") {
+        //alert("You don't have any subject");
         return false;
       }
 
@@ -79,10 +79,10 @@ const signIn = async (email, password) => {
       console.log("No user found with this email.");
     }
 
-    alert("Sign in success");
+    //alert("Sign in success");
     return true;
   } catch (error) {
-    alert("Check your email or password");
+    //alert("Check your email or password");
     console.error(error);
     return false;
   }

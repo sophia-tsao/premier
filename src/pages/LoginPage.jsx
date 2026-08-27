@@ -9,13 +9,26 @@ import { signIn } from "../utils/firebase_auth";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  //error message
+  const[errorMessage, setErrorMessage] = useState("");
+  
   const navigate = useNavigate();
 
   //web login
-  const onLogin = async () => {
-    var result = await signIn(email, password);
-    if(result){
-      navigate("/subject-drive");
+  const onLogin = async (e) => {
+    e.preventDefault();
+    setErrorMessage("");
+    try{
+      var result = await signIn(email, password);
+      if(result){
+        navigate("/subject-drive");
+      }
+      else{
+        setErrorMessage("Enter the correct email or password.")
+      }
+    }
+      catch(error){
+        setErrorMessage("Enter the correct email or password.")
     }
   };
 
@@ -81,6 +94,8 @@ function LoginPage() {
               </div>
           </div>
           <div>
+            
+            <form onSubmit={onLogin} style={{ width: "100%" }}>
             <div style={{}}>
               <label style={{ fontSize: "14px" }}>Email</label>
               <div
@@ -107,6 +122,7 @@ function LoginPage() {
                 />
               </div>
             </div>
+            
             <div style={{ textAlign: "left", marginTop: "49px" }}>
               <label style={{ fontSize: "14px" }}>Password</label>
               <div
@@ -132,26 +148,31 @@ function LoginPage() {
                 />
               </div>
             </div>
-
+            {errorMessage && (
+              <div style={{ color: "#d93025", fontSize: "13px", marginTop: "8px", fontWeight: "500" }}>
+                {errorMessage}
+              </div>
+            )}
 
 
             <button
-              onClick={onLogin}
+              type="submit"
               style={{
                 width: "100%",
                 marginTop: "96px",
                 padding: "0.75rem",
-                backgroundColor: "#C10C99",
-                color: "#000",
+                backgroundColor: "#9d2d85",
+                color: "#ffffff",
                 borderRadius: "32px",
                 border: "none",
                 fontSize: "16px",
                 cursor: "pointer",
-                boxShadow: "0 4px 8px rgba(193, 12, 153, 0.3)",
+                boxShadow: "0 4px 8px rgba(193, 0, 151, 0.3)",
               }}
             >
               Login
             </button>
+            </form>
 
 
 
