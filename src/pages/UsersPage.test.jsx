@@ -179,6 +179,11 @@ test("saving an edited user writes back through updateDoc", async () => {
   await userEvent.click(screen.getByRole("button", { name: "Save" }));
 
   await waitFor(() => expect(updateDoc).toHaveBeenCalledTimes(1));
+  // handleSaveUser closes the modal (setEditingUser(null)) after the await;
+  // wait for that so the trailing state update flushes inside act().
+  await waitFor(() =>
+    expect(screen.queryByRole("heading", { name: "Edit User" })).not.toBeInTheDocument()
+  );
 });
 
 test("deleting a user (after confirm) calls deleteDoc", async () => {

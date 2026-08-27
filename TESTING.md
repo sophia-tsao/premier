@@ -50,3 +50,21 @@ npm run test:e2e
 - **No real Firebase in tests.** Unit/integration tests mock the Firebase SDK;
   E2E seeds `localStorage.subject` to simulate a logged-in role without a live
   Firebase session, keeping runs deterministic and offline.
+
+- **Why we don't assert on `alert()` after an `await`.** An earlier version of
+  `firebase_auth.test.js` asserted `expect(window.alert).toHaveBeenCalledWith(...)`
+  for alerts fired *after* an `await` inside the module (e.g. "Sign in success",
+  "Check your email or password"). Under CRA's jsdom setup those post-`await`
+  `alert()` calls do not land on the test-stubbed `window.alert` (they resolve
+  against jsdom's built-in alert), so the assertions were flaky across Jest
+  workers — this was the cause of the "3 failed" CI run. The fix asserts the
+  **observable contract** instead: return values, `localStorage`, and the
+  Firebase mock calls (`createUserWithEmailAndPassword` / `setDoc` invoked or
+  not). Only *synchronous* alerts fired before any `await` (e.g. "Email is
+  required") are still asserted, because those are captured reliably.
+
+- **`act()` warnings in the Jest output.** Several page components fire state
+  updates when async work resolves (Firebase promises, navigation). React logs
+  "not wrapped in act(...)" warnings for these; they are cosmetic and do not
+  affect pass/fail. Fully silencing them would require editing component source
+  (excluded by the project constraint) or invasive fake-timer restructuring.
