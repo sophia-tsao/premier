@@ -43,6 +43,18 @@ const AdminPage = () => {
   const firebaseAuth = getAuth();
   const fileInputRef = useRef();
 
+  const formatSubjects = (subject) => {
+    if (Array.isArray(subject)) {
+      return subject.length > 0 ? subject.join(", ") : "None";
+    }
+
+    if (typeof subject === "string" && subject.trim()) {
+      return subject;
+    }
+
+    return "None";
+  };
+
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "users"), (snapshot) => {
       const allUsers = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
@@ -418,6 +430,7 @@ const AdminPage = () => {
             <th style={{ textAlign: 'center' }}>Last Name</th>
             <th style={{ textAlign: 'center' }}>Email</th>
             <th style={{ textAlign: 'center' }}>Role</th>
+            <th style={{ textAlign: 'center' }}>Subjects</th>
             <th style={{ textAlign: 'center' }}>Actions</th>
           </tr>
         </thead>
@@ -428,6 +441,7 @@ const AdminPage = () => {
               <td>{user.lastName || 'N/A'}</td>
               <td>{user.email || 'N/A'}</td>
               <td>{user.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : 'N/A'}</td>
+              <td>{formatSubjects(user.subject)}</td>
               <td>
                 <button onClick={() => handleEditUser(user)}>Edit</button>
                 <button onClick={() => handleResetPassword(user.id)}>Reset Password</button>
