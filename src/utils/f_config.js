@@ -36,6 +36,7 @@ const firebaseConfig = {
 
 //public drive link
 var driveLink = {
+    "Full Drive": "https://drive.google.com/drive/folders/1xGe9DWyt2BTkI9dZ4ca3rwIus889SteC?scrlybrkr=0445c20e",
     "1st Grade": "https://drive.google.com/drive/folders/1wXI6y-WN7NAfz20RP6qAjwLd0Z39iuIy?scrlybrkr=0445c20e",
     "2nd Grade": "https://drive.google.com/drive/folders/1QGNvcBTtzjJjNvUUuRkfavZ_PtyHBbv8?scrlybrkr=0445c20e",
     "3rd Grade": "https://drive.google.com/drive/folders/1-ZSQvNBJhIifam4Vf3ewHEQXjQSqiGhb?scrlybrkr=0445c20e",
@@ -88,18 +89,18 @@ var driveLink = {
     "Spanish II": "https://drive.google.com/drive/folders/1vYI3UCR8uoZCvZqtCVqwLeacUl0tJpHb?scrlybrkr=0445c20e",
     "Spanish I": "https://drive.google.com/drive/folders/1Ytg7L5yan4PHDT6D0OCbDNwXMX49mwDv?scrlybrkr=0445c20e",
     "AP Human Geography": "https://drive.google.com/drive/folders/1wF27nP_QPfqffiezRJ5pBh0x0iWofWKi?scrlybrkr=0445c20e",
-    "AP Macroeconomics (0.5 credit)": "https://drive.google.com/drive/folders/1PJnZht4m5dzNZIo_qc3NPFFnLIzANhhR?scrlybrkr=0445c20e",
+    "AP Macroeconomics": "https://drive.google.com/drive/folders/1PJnZht4m5dzNZIo_qc3NPFFnLIzANhhR?scrlybrkr=0445c20e",//0.5
     "AP Psychology": "https://drive.google.com/drive/folders/1D6bfYho1e1fUAuVZ8fXr4au2eTkWMFZ_?scrlybrkr=0445c20e",
-    "AP U.S. Government and Politics (0.5 credit)": "https://drive.google.com/drive/folders/14WNPVxGZhaDKxMb9uXswagqLTFNw42wD?scrlybrkr=0445c20e",
+    "AP U.S. Government and Politics": "https://drive.google.com/drive/folders/14WNPVxGZhaDKxMb9uXswagqLTFNw42wD?scrlybrkr=0445c20e",//0.5
     "AP U.S. History": "https://drive.google.com/drive/folders/12F3bdXhKk88V0e6xalb5nEsDu_-OWlz3?scrlybrkr=0445c20e",
     "AP World History": "https://drive.google.com/drive/folders/1UIWXcXrG1YE1dln5q-QdfYM3-Q78dkUL?scrlybrkr=0445c20e",
-    "Business Communications (0.5 credit)": "https://drive.google.com/drive/folders/1vjG-sS8NohB0KyEfW73m9rI-8lxOVU_C?scrlybrkr=0445c20e",
+    "Business Communications": "https://drive.google.com/drive/folders/1vjG-sS8NohB0KyEfW73m9rI-8lxOVU_C?scrlybrkr=0445c20e", //0.5
     "Current Topics": "https://drive.google.com/drive/folders/11wB2nzBPaVh18SRAygfCF94WY3Sozew7?scrlybrkr=0445c20e",
     "Introduction to Business and Technology": "https://drive.google.com/drive/folders/1b1MMJmheKp41gIcifdT9R91L0y5_JyYr?scrlybrkr=0445c20e",
-    "Investments (0.5 credit)": "https://drive.google.com/drive/folders/1btBq3rqSGkEsoFLkpTNt9pMXu4VihUxb?scrlybrkr=0445c20e",
-    "Personal Finance and Economics (0.5 credit)": "https://drive.google.com/drive/folders/1nkOXoMWYxGQRKlCSkD5n64q659NEaHmp?scrlybrkr=0445c20e",
+    "Investments": "https://drive.google.com/drive/folders/1btBq3rqSGkEsoFLkpTNt9pMXu4VihUxb?scrlybrkr=0445c20e",//0.5
+    "Personal Finance and Economics": "https://drive.google.com/drive/folders/1nkOXoMWYxGQRKlCSkD5n64q659NEaHmp?scrlybrkr=0445c20e", //0.5
     "U.S. Constitution and Introduction to Law": "https://drive.google.com/drive/folders/17ia9yKti_79aS8laFe3f6Slpjhlz768T?scrlybrkr=0445c20e",
-    "U.S. Government and Politics (0.5 credit)": "https://drive.google.com/drive/folders/1FJAUabdWBGA8Yo4YvIS3qIzhrzZFPFv3?scrlybrkr=0445c20e",
+    "U.S. Government and Politics": "https://drive.google.com/drive/folders/1FJAUabdWBGA8Yo4YvIS3qIzhrzZFPFv3?scrlybrkr=0445c20e", //0.5
     "U.S. History": "https://drive.google.com/drive/folders/1NVD0XA_lylkliWSJ4E5NyWx3U_msFO3X?scrlybrkr=0445c20e",
     "World History": "https://drive.google.com/drive/folders/1w1j4RJYBAkz-SnsHuQqeM9UzO3c9z_af?scrlybrkr=0445c20e",
     "AP Biology": "https://drive.google.com/drive/folders/1BlkyhE8DLNykYcYW_ecs9pN5ClKAMFse?scrlybrkr=0445c20e",
@@ -111,10 +112,10 @@ var driveLink = {
     "Biology": "https://drive.google.com/drive/folders/1HszwfIyA3qTekRxLw7j1N4hW4Wh15eWp?scrlybrkr=0445c20e",
     "Chemistry": "https://drive.google.com/drive/folders/1-poGcY9uUBaRW_Q-tHKyJ2St8zAE-aJt?scrlybrkr=0445c20e",
     "Forensics": "https://drive.google.com/drive/folders/1xfwIcyLlcjUl-0U0z6s06nrImGCtlxc7?scrlybrkr=0445c20e",
-    "Genetics (0.5 credit)": "https://drive.google.com/drive/folders/1CVQ5K5eJQAwbkNe3KC81rwvM1zXhO8Ly?scrlybrkr=0445c20e",
+    "Genetics": "https://drive.google.com/drive/folders/1CVQ5K5eJQAwbkNe3KC81rwvM1zXhO8Ly?scrlybrkr=0445c20e",
     "Human Anatomy & Physiology": "https://drive.google.com/drive/folders/1Ei5SRo2-3-hxZjmztGj9vtsLz4wHpv-Q?scrlybrkr=0445c20e",
     "Marine Science": "https://drive.google.com/drive/folders/1kU4seVBOc5q3MYtzSANtziphH1mfsE1r?scrlybrkr=0445c20e",
-    "Molecular Biology (0.5 credit)": "https://drive.google.com/drive/folders/1ymvlsjTeSi2jzDxX7M9f00F0k31IsYV7?scrlybrkr=0445c20e",
+    "Molecular Biology": "https://drive.google.com/drive/folders/1ymvlsjTeSi2jzDxX7M9f00F0k31IsYV7?scrlybrkr=0445c20e",//0.5
     "Physics I": "https://drive.google.com/drive/folders/1T4iZEqnKy4pk9eOlYfM86-8sy0kHpIMk?scrlybrkr=0445c20e",
     "AP Computer Science A": "https://drive.google.com/drive/folders/1qbmoLH2N13r_2QlnS2DwANZOt7tXjVy3?scrlybrkr=0445c20e",
     "AP Computer Science Principles": "https://drive.google.com/drive/folders/11JL8ncn4g06CvdrBudGDfE_6ybohu8SI?scrlybrkr=0445c20e",
@@ -155,8 +156,8 @@ var driveLink = {
     "Multivariable Calculus": "https://drive.google.com/drive/folders/1YPwZ1FOud-JIhWNJvO5xotL2ebvFvPGk?scrlybrkr=0445c20e",
     "Precalculus": "https://drive.google.com/drive/folders/1ytWs25N40oMGgo-5yf3grq6Qvc-3bGAe?scrlybrkr=0445c20e",
     "Statistics": "https://drive.google.com/drive/folders/1ytWs25N40oMGgo-5yf3grq6Qvc-3bGAe?scrlybrkr=0445c20e",
-    "Health (0.5 credit)": "https://drive.google.com/drive/folders/1V6Nd_zC9e3oyn0JmK25djyX2BCgybq2Q?scrlybrkr=0445c20e",
-    "Physical Education (P.E.) (0.5 credit)": "https://drive.google.com/drive/folders/1qdBULfXhYS6oWEoelhnN0G19t-jz9CUI?scrlybrkr=0445c20e",
+    "Health": "https://drive.google.com/drive/folders/1V6Nd_zC9e3oyn0JmK25djyX2BCgybq2Q?scrlybrkr=0445c20e", //0.5
+    "Physical Education (P.E.)": "https://drive.google.com/drive/folders/1qdBULfXhYS6oWEoelhnN0G19t-jz9CUI?scrlybrkr=0445c20e",//0.5
 };
 
 
