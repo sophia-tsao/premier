@@ -53,6 +53,17 @@ describe("teacher (specific subjects)", () => {
     expect(window.open).toHaveBeenCalledWith(driveLink["Math 6AB"], "_blank");
   });
 
+  test("shows the LP website placeholder button", async () => {
+    render(<SubjectDrive />);
+
+    await userEvent.click(
+      screen.getByRole("button", { name: /Access LP Website/ })
+    );
+
+    expect(window.alert).toHaveBeenCalledWith("LP website link coming soon");
+    expect(window.open).not.toHaveBeenCalled();
+  });
+
   test("switching the dropdown opens the matching Drive link", async () => {
     render(<SubjectDrive />);
 
@@ -81,6 +92,9 @@ describe("admin (Full Drive)", () => {
     expect(screen.queryByRole("combobox")).not.toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /Access Curriculum/ })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Access LP Website/ })
     ).toBeInTheDocument();
   });
 

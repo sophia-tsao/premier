@@ -4,6 +4,8 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { driveLink } from "../utils/f_config";
 import { useNavigate } from "react-router-dom";
 
+const LP_WEBSITE_URL = "";
+
 const SubjectDrive = () => {
     const navigate = useNavigate();
     const [localSubject, setLocalSubject] = useState([]);
@@ -131,6 +133,30 @@ const SubjectDrive = () => {
                 }}
             >
                 Access {isFullDriveUser ? 'Curriculum' : `${subject} Curriculum`}
+            </button>
+
+            <button
+                onClick={() => {
+                    if (!LP_WEBSITE_URL) {
+                        alert('LP website link coming soon');
+                        return;
+                    }
+                    window.open(LP_WEBSITE_URL, '_blank');
+                }}
+                style={{
+                    padding: '14px 30px',
+                    fontSize: '18px',
+                    backgroundColor: '#f2f2f2',
+                    color: '#222',
+                    border: '1px solid #ccc',
+                    borderRadius: '12px',
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.15)',
+                    transition: 'all 0.3s ease',
+                    margin: '0 0 20px'
+                }}
+            >
+                Access LP Website
             </button>
         </div>
     );
