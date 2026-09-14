@@ -28,6 +28,8 @@
     "start": "react-scripts start",
     "build": "cross-env CI=true react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "cross-env CI=true react-scripts test --watchAll=false --testPathIgnorePatterns=src/App.test.js",
+    "test:e2e": "playwright test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,6 +51,8 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^10.1.0"
+    "@playwright/test": "^1.49.1",
+    "cross-env": "^10.1.0",
+    "serve": "^14.2.4"
   }
 }
