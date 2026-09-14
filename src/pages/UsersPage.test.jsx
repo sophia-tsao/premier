@@ -92,6 +92,9 @@ test("renders the admin page heading and controls", () => {
 
 test("lists every account from the users collection", () => {
   render(<UsersPage />);
+  expect(
+    screen.getByRole("columnheader", { name: "Subjects" })
+  ).toBeInTheDocument();
   expect(screen.getByText("Alice")).toBeInTheDocument();
   expect(screen.getByText("alice@gmail.com")).toBeInTheDocument();
   expect(screen.getByText("Tom")).toBeInTheDocument();
@@ -100,6 +103,8 @@ test("lists every account from the users collection", () => {
   // Role is rendered capitalized.
   expect(screen.getByText("Admin", { selector: "td" })).toBeInTheDocument();
   expect(screen.getByText("Teacher", { selector: "td" })).toBeInTheDocument();
+  expect(screen.getByText("Full Drive", { selector: "td" })).toBeInTheDocument();
+  expect(screen.getByText("Math 6AB", { selector: "td" })).toBeInTheDocument();
 });
 
 test("search filters the account list by name/email", async () => {
