@@ -36,7 +36,6 @@ const firebaseConfig = {
 
 //public drive link
 var driveLink = {
-    "Full Drive": "https://drive.google.com/drive/folders/1xGe9DWyt2BTkI9dZ4ca3rwIus889SteC?scrlybrkr=0445c20e",
     "1st Grade": "https://drive.google.com/drive/folders/1wXI6y-WN7NAfz20RP6qAjwLd0Z39iuIy?scrlybrkr=0445c20e",
     "2nd Grade": "https://drive.google.com/drive/folders/1QGNvcBTtzjJjNvUUuRkfavZ_PtyHBbv8?scrlybrkr=0445c20e",
     "3rd Grade": "https://drive.google.com/drive/folders/1-ZSQvNBJhIifam4Vf3ewHEQXjQSqiGhb?scrlybrkr=0445c20e",

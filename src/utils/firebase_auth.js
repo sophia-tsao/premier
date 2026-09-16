@@ -75,6 +75,7 @@ const signIn = async (email, password) => {
       }
 
       localStorage.setItem("subject", JSON.stringify(userData.subject));
+      localStorage.setItem("role", JSON.stringify(userData.role));
     } else {
       console.log("No user found with this email.");
     }

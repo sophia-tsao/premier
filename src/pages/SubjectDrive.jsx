@@ -12,18 +12,25 @@ const SubjectDrive = () => {
     const [showAdminMenu, setShowAdminMenu] = useState(false);
 
     useEffect(() => {
-        const storedSubjects = JSON.parse(localStorage.getItem('subject'));
-        if (Array.isArray(storedSubjects) && storedSubjects.length > 0) {
-            setLocalSubject(storedSubjects);
+        
 
-            if (storedSubjects.includes("Full Drive")) {
-                setIsFullDriveUser(true);
-                setSubject("Full Drive");
-            } else {
-                setSubject(storedSubjects[0]);
-            }
-        } else {
+        const storedSubjects = JSON.parse(localStorage.getItem('subject'));
+        const userRole = JSON.parse(localStorage.getItem('role'));
+        if (userRole === 'admin') {
+            setIsFullDriveUser(true);
+            setLocalSubject([]); 
+            setSubject("");
+        } 
+        else if (Array.isArray(storedSubjects) && storedSubjects.length > 0) {
+            setIsFullDriveUser(false);
+            setLocalSubject(storedSubjects);
+            setSubject(storedSubjects[0]);
+        } 
+    
+        else {
+            setIsFullDriveUser(false);
             setLocalSubject([]);
+            setSubject("");
         }
     }, []);
 
@@ -107,6 +114,12 @@ const SubjectDrive = () => {
             {/* Button */}
             <button
                 onClick={() => {
+                    if (isFullDriveUser) {
+                        const masterLink = "https://drive.google.com/drive/folders/1xGe9DWyt2BTkI9dZ4ca3rwIus889SteC?scrlybrkr=0445c20e";
+                        window.open(masterLink, '_blank');
+                        return;
+                    }
+
                     if (subject === '') {
                         alert('Please select a subject');
                         return;

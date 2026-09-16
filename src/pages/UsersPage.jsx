@@ -117,7 +117,7 @@ const AdminPage = () => {
               lastName,
               email,
               password,
-              subject: role === "Admin" ? ["Full Drive"] : [],
+              subject: role === "Admin" ? [] : [],
               role: role.toLowerCase(),
               authProvider: "admin",
               createdAt: serverTimestamp(),
@@ -157,7 +157,7 @@ const AdminPage = () => {
         lastName: newUser.lastName,
         email: newUser.email,
         password: newUser.password,
-        subject: newUser.role === 'admin' ? ["Full Drive"] : newUser.subject,
+        subject: newUser.role === 'admin' ? [] : newUser.subject,
         role: newUser.role || 'teacher',
         authProvider: "admin",
         createdAt: serverTimestamp(),
@@ -189,7 +189,7 @@ const AdminPage = () => {
         firstName: updatedUser.firstName,
         lastName: updatedUser.lastName,
         email: updatedUser.email,
-        subject: updatedUser.role === 'admin' ? ["Full Drive"] : updatedUser.subject,
+        subject: updatedUser.role === 'admin' ? [] : updatedUser.subject,
         role: updatedUser.role || 'teacher',
         gradeLevel: updatedUser.gradeLevel,
         courseCategory: updatedUser.courseCategory,
@@ -362,12 +362,12 @@ const AdminPage = () => {
 
   const handleRoleChangeNew = (e) => {
     const role = e.target.value;
-    setNewUser(prev => ({ ...prev, role, subject: role === 'admin' ? ["Full Drive"] : [], gradeLevel: "", courseCategory: "" }));
+    setNewUser(prev => ({ ...prev, role, subject: role === 'admin' ? [] : [], gradeLevel: "", courseCategory: "" }));
   };
 
   const handleRoleChangeEdit = (e) => {
     const role = e.target.value;
-    setUpdatedUser(prev => ({ ...prev, role, subject: role === 'admin' ? ["Full Drive"] : [], gradeLevel: "", courseCategory: "" }));
+    setUpdatedUser(prev => ({ ...prev, role, subject: role === 'admin' ? [] : [], gradeLevel: "", courseCategory: "" }));
   };
 
   return (

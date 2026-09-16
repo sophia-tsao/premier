@@ -28,6 +28,7 @@ beforeEach(() => {
 
 describe("teacher (specific subjects)", () => {
   beforeEach(() => {
+    window.localStorage.setItem("role", "teacher");
     window.localStorage.setItem(
       "subject",
       JSON.stringify(["Math 6AB", "Spanish 6"])
@@ -72,7 +73,8 @@ describe("teacher (specific subjects)", () => {
 
 describe("admin (Full Drive)", () => {
   beforeEach(() => {
-    window.localStorage.setItem("subject", JSON.stringify(["Full Drive"]));
+    window.localStorage.setItem("role", "admin");
+    window.localStorage.setItem("subject", JSON.stringify([]));
   });
 
   test("shows the Full Drive access button, not a subject dropdown", () => {
