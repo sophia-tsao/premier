@@ -46,7 +46,7 @@ const SEED_USERS = [
       lastName: "Anderson",
       email: "alice@gmail.com",
       role: "admin",
-      subject: ["Full Drive"],
+      subject: [],
     },
   },
   {
@@ -103,7 +103,7 @@ test("lists every account from the users collection", () => {
   // Role is rendered capitalized.
   expect(screen.getByText("Admin", { selector: "td" })).toBeInTheDocument();
   expect(screen.getByText("Teacher", { selector: "td" })).toBeInTheDocument();
-  expect(screen.getByText("Full Drive", { selector: "td" })).toBeInTheDocument();
+  //expect(screen.getByText("Full Drive", { selector: "td" })).toBeInTheDocument();
   expect(screen.getByText("Math 6AB", { selector: "td" })).toBeInTheDocument();
 });
 
@@ -158,7 +158,7 @@ test("adding an admin user creates the auth account and a Full Drive doc", async
     expect.objectContaining({
       email: "newadmin@gmail.com",
       role: "admin",
-      subject: ["Full Drive"],
+      subject: [],
       authProvider: "admin",
     })
   );

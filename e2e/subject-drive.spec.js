@@ -8,6 +8,7 @@ const { test, expect } = require("@playwright/test");
 test.describe("SubjectDrive - teacher", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => {
+      window.localStorage.setItem("role", "teacher");
       window.localStorage.setItem(
         "subject",
         JSON.stringify(["Math 6AB", "Spanish 6"])
@@ -36,7 +37,8 @@ test.describe("SubjectDrive - admin (Full Drive)", () => {
   // does not render or navigate, this test fails and localizes the problem.
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => {
-      window.localStorage.setItem("subject", JSON.stringify(["Full Drive"]));
+      window.localStorage.setItem("role", "admin");
+      window.localStorage.setItem("subject", JSON.stringify([]));
     });
   });
 
