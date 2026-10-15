@@ -15,7 +15,7 @@ const SubjectDrive = () => {
         
 
         const storedSubjects = JSON.parse(localStorage.getItem('subject'));
-        const userRole = localStorage.getItem('role');
+        const userRole = (localStorage.getItem('role') || '').replace(/"/g, '').toLowerCase();
         if (userRole === 'admin') {
             setIsFullDriveUser(true);
             setLocalSubject([]); 
