@@ -90,7 +90,14 @@ function LoginPage() {
               <div style={{ color: "#666", marginTop: "10px"}}>
                 If you do not have an<br/>
                 account, you can create one<br/>
-                <span onClick={() => navigate("/sign-up")} style={{ color: "#b80b92",cursor:'pointer' }}>here</span>.
+                <button
+                  type="button"
+                  className="text-link-button tooltip-trigger"
+                  data-tooltip="Open the account registration page"
+                  onClick={() => navigate("/sign-up")}
+                >
+                  here
+                </button>.
               </div>
           </div>
           <div>
@@ -157,6 +164,8 @@ function LoginPage() {
 
             <button
               type="submit"
+              className="tooltip-trigger"
+              data-tooltip="Sign in to the Premier Portal"
               style={{
                 width: "100%",
                 marginTop: "96px",

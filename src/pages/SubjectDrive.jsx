@@ -4,7 +4,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { driveLink } from "../utils/f_config";
 import { useNavigate } from "react-router-dom";
 
-const LP_WEBSITE_URL = "";
+const LP_WEBSITE_URL = "https://www.commonplanner.com/";
 
 const SubjectDrive = () => {
     const navigate = useNavigate();
@@ -42,14 +42,26 @@ const SubjectDrive = () => {
             {/* ⚙️ Gear icon (Only for Full Drive users) */}
             {isFullDriveUser && (
                 <div style={{ position: 'absolute', top: '10px', right: '10px' }}>
-                    <FontAwesomeIcon
-                        icon={faCog}
-                        style={{ color: '#b80b92', fontSize: '24px', cursor: 'pointer' }}
+                    <button
+                        type="button"
+                        className="tooltip-trigger tooltip-align-right"
+                        data-tooltip="Open admin options"
+                        aria-label="Open admin options"
                         onClick={() => setShowAdminMenu(prev => !prev)}
-                    />
+                        style={{ padding: '6px', border: 'none', background: 'transparent', cursor: 'pointer' }}
+                    >
+                        <FontAwesomeIcon
+                            icon={faCog}
+                            style={{ color: '#b80b92', fontSize: '24px' }}
+                        />
+                    </button>
                     {showAdminMenu && (
-                        <div
+                        <button
+                            type="button"
+                            className="tooltip-trigger"
+                            data-tooltip="Manage users and their assigned subjects"
                             style={{
+                                display: 'block',
                                 marginTop: '8px',
                                 backgroundColor: '#fff',
                                 border: '1px solid #ccc',
@@ -64,7 +76,7 @@ const SubjectDrive = () => {
                             onClick={() => navigate('/users')}
                         >
                             Admin
-                        </div>
+                        </button>
                     )}
                 </div>
             )}
@@ -108,6 +120,11 @@ const SubjectDrive = () => {
 
             {/* Button */}
             <button
+                type="button"
+                className="tooltip-trigger"
+                data-tooltip={isFullDriveUser
+                    ? 'Open the full curriculum Drive in a new tab'
+                    : `Open the ${subject || 'selected subject'} curriculum Drive in a new tab`}
                 onClick={() => {
                     if (subject === '') {
                         alert('Please select a subject');
@@ -136,12 +153,11 @@ const SubjectDrive = () => {
             </button>
 
             <button
+                type="button"
+                className="tooltip-trigger"
+                data-tooltip="Open the Common Planner website in a new tab"
                 onClick={() => {
-                    if (!LP_WEBSITE_URL) {
-                        alert('LP website link coming soon');
-                        return;
-                    }
-                    window.open(LP_WEBSITE_URL, '_blank');
+                    window.open(LP_WEBSITE_URL, '_blank', 'noopener,noreferrer');
                 }}
                 style={{
                     padding: '14px 30px',
@@ -156,7 +172,7 @@ const SubjectDrive = () => {
                     margin: '0 0 20px'
                 }}
             >
-                Access LP Website
+                Open Common Planner
             </button>
         </div>
     );

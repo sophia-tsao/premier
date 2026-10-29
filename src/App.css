@@ -3,3 +3,77 @@
 *::after {
   box-sizing: border-box;
 }
+
+.tooltip-trigger {
+  position: relative;
+}
+
+.tooltip-trigger::before,
+.tooltip-trigger::after {
+  position: absolute;
+  left: 50%;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.tooltip-trigger::before {
+  content: "";
+  top: calc(100% + 5px);
+  border: 6px solid transparent;
+  border-bottom-color: #252525;
+  transform: translate(-50%, -4px);
+}
+
+.tooltip-trigger::after {
+  content: attr(data-tooltip);
+  top: calc(100% + 17px);
+  width: max-content;
+  max-width: min(260px, calc(100vw - 32px));
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #252525;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-align: center;
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -4px);
+}
+
+.tooltip-trigger:hover::before,
+.tooltip-trigger:hover::after,
+.tooltip-trigger:focus-visible::before,
+.tooltip-trigger:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.tooltip-trigger.tooltip-align-right::before,
+.tooltip-trigger.tooltip-align-right::after {
+  left: auto;
+  right: 0;
+  transform: translateY(-4px);
+}
+
+.tooltip-trigger.tooltip-align-right:hover::before,
+.tooltip-trigger.tooltip-align-right:hover::after,
+.tooltip-trigger.tooltip-align-right:focus-visible::before,
+.tooltip-trigger.tooltip-align-right:focus-visible::after {
+  transform: translateY(0);
+}
+
+.text-link-button {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #b80b92;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}

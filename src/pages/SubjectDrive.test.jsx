@@ -53,15 +53,24 @@ describe("teacher (specific subjects)", () => {
     expect(window.open).toHaveBeenCalledWith(driveLink["Math 6AB"], "_blank");
   });
 
-  test("shows the LP website placeholder button", async () => {
+  test("opens Common Planner in a new tab", async () => {
     render(<SubjectDrive />);
 
-    await userEvent.click(
-      screen.getByRole("button", { name: /Access LP Website/ })
+    const commonPlannerButton = screen.getByRole("button", {
+      name: /Open Common Planner/,
+    });
+    expect(commonPlannerButton).toHaveAttribute(
+      "data-tooltip",
+      "Open the Common Planner website in a new tab"
     );
 
-    expect(window.alert).toHaveBeenCalledWith("LP website link coming soon");
-    expect(window.open).not.toHaveBeenCalled();
+    await userEvent.click(commonPlannerButton);
+
+    expect(window.open).toHaveBeenCalledWith(
+      "https://www.commonplanner.com/",
+      "_blank",
+      "noopener,noreferrer"
+    );
   });
 
   test("switching the dropdown opens the matching Drive link", async () => {
@@ -94,7 +103,7 @@ describe("admin (Full Drive)", () => {
       screen.getByRole("button", { name: /Access Curriculum/ })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /Access LP Website/ })
+      screen.getByRole("button", { name: /Open Common Planner/ })
     ).toBeInTheDocument();
   });
 
@@ -103,6 +112,9 @@ describe("admin (Full Drive)", () => {
     // FontAwesome renders the gear as an <svg>. Its presence is what makes the
     // "view all accounts" entry point reachable.
     expect(container.querySelector("svg")).not.toBeNull();
+    expect(
+      screen.getByRole("button", { name: "Open admin options" })
+    ).toHaveAttribute("data-tooltip", "Open admin options");
   });
 
   test("clicking the gear reveals the Admin link that opens /users", async () => {

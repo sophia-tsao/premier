@@ -109,7 +109,14 @@ function SignUpPage() {
             <div style={{ color: "#666", marginTop: "10px"}}>
                 If you already have an<br/>
                 account, you can login<br/>
-                <span onClick={() => navigate("/")} style={{ color: "#b80b92",cursor:'pointer' }}>here</span>.
+                <button
+                  type="button"
+                  className="text-link-button tooltip-trigger"
+                  data-tooltip="Return to the login page"
+                  onClick={() => navigate("/")}
+                >
+                  here
+                </button>.
               </div>
           </div>
           <div>
@@ -191,6 +198,9 @@ function SignUpPage() {
               </div>
             </div>
             <button
+              type="button"
+              className="tooltip-trigger"
+              data-tooltip="Create a new Premier Portal account"
               onClick={onSignUp}
               style={{
                 width: "100%",

@@ -26,6 +26,9 @@ test("renders the create-account form", () => {
   expect(screen.getByText("Create Account", { selector: "div" })).toBeInTheDocument();
   expect(screen.getByPlaceholderText("Enter your name")).toBeInTheDocument();
   expect(screen.getByRole("button", { name: "Create Account" })).toBeInTheDocument();
+  screen.getAllByRole("button").forEach((button) => {
+    expect(button).toHaveAttribute("data-tooltip");
+  });
 });
 
 test("rejects a non-gmail email without calling signUp", async () => {

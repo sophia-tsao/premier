@@ -381,8 +381,8 @@ const AdminPage = () => {
           onChange={handleSearchChange}
           style={{ padding: '8px', borderRadius: '5px', border: '1px solid #ccc', width: '300px' }}
         />
-        <button onClick={handleOpenAddModal}>Add User</button>
-        <button onClick={() => fileInputRef.current.click()}>
+        <button type="button" className="tooltip-trigger" data-tooltip="Open the form to create one user" onClick={handleOpenAddModal}>Add User</button>
+        <button type="button" className="tooltip-trigger" data-tooltip="Choose a CSV file to add multiple users" onClick={() => fileInputRef.current.click()}>
           CSV Bulk Upload</button>
         <input
           type="file"
@@ -417,8 +417,8 @@ const AdminPage = () => {
                 {!newUser.gradeLevel && <p>Select subjects after selecting a grade level.</p>}
               </>
             )}
-            <button onClick={handleAddUser}>Add</button>
-            <button onClick={handleCloseAddModal}>Cancel</button>
+            <button type="button" className="tooltip-trigger" data-tooltip="Create this user account" onClick={handleAddUser}>Add</button>
+            <button type="button" className="tooltip-trigger" data-tooltip="Close without creating a user" onClick={handleCloseAddModal}>Cancel</button>
           </div>
         </div>
       )}
@@ -443,9 +443,9 @@ const AdminPage = () => {
               <td>{user.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : 'N/A'}</td>
               <td>{formatSubjects(user.subject)}</td>
               <td>
-                <button onClick={() => handleEditUser(user)}>Edit</button>
-                <button onClick={() => handleResetPassword(user.id)}>Reset Password</button>
-                <button onClick={() => handleDeleteUser(user.id)} style={{ color: 'red' }}>Delete</button>
+                <button type="button" className="tooltip-trigger" data-tooltip={`Edit ${user.firstName || user.email || 'this user'}'s account`} onClick={() => handleEditUser(user)}>Edit</button>
+                <button type="button" className="tooltip-trigger" data-tooltip="Reset this user's password to the default" onClick={() => handleResetPassword(user.id)}>Reset Password</button>
+                <button type="button" className="tooltip-trigger" data-tooltip="Permanently remove this user record" onClick={() => handleDeleteUser(user.id)} style={{ color: 'red' }}>Delete</button>
               </td>
             </tr>
           ))}
@@ -476,8 +476,8 @@ const AdminPage = () => {
                 {!updatedUser.gradeLevel && <p>Select subjects after selecting a grade level.</p>}
               </>
             )}
-            <button onClick={handleSaveUser}>Save</button>
-            <button onClick={handleModalClose}>Cancel</button>
+            <button type="button" className="tooltip-trigger" data-tooltip="Save changes to this user" onClick={handleSaveUser}>Save</button>
+            <button type="button" className="tooltip-trigger" data-tooltip="Close without saving changes" onClick={handleModalClose}>Cancel</button>
           </div>
         </div>
       )}

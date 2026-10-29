@@ -27,6 +27,9 @@ test("renders the login form", () => {
   expect(screen.getByPlaceholderText("Enter your email address")).toBeInTheDocument();
   expect(screen.getByPlaceholderText("Enter your password")).toBeInTheDocument();
   expect(screen.getByRole("button", { name: "Login" })).toBeInTheDocument();
+  screen.getAllByRole("button").forEach((button) => {
+    expect(button).toHaveAttribute("data-tooltip");
+  });
 });
 
 test("submits typed credentials and navigates on success", async () => {

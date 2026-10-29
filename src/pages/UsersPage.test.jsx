@@ -88,6 +88,9 @@ test("renders the admin page heading and controls", () => {
   expect(
     screen.getByRole("button", { name: "CSV Bulk Upload" })
   ).toBeInTheDocument();
+  screen.getAllByRole("button").forEach((button) => {
+    expect(button).toHaveAttribute("data-tooltip");
+  });
 });
 
 test("lists every account from the users collection", () => {
